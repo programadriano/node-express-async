@@ -1,10 +1,15 @@
 var request = require("request");
 
 exports.get = async (req, res, next) => {
-    await request("http://www.google.com", function(error, response, body) {
-      res.json(body);
-    });
-  };
+
+    try {
+        const result = await request("http://www.google.com");
+        res.json(result);
+    } catch (error) {
+        console.error(error);
+    }
+
+};
 
 
 exports.getById = (req, res, next) => {
