@@ -4,6 +4,7 @@ exports.get = async (req, res, next) => {
 
     try {
         const result = await request("http://www.google.com");
+        
         res.json(result);
     } catch (error) {
         console.error(error);
